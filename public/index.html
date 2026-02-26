@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <button id="toggleRooms" class="iconBtn" aria-label="Salas">☰</button>
+
+  <div class="roomTitle">
+    <div class="roomName" id="roomName">#geral</div>
+    <div class="roomSub" id="typingLine"></div>
+  </div>
+
+  <button id="onlineBtn" class="onlineBtn" type="button">
+    <span id="onlineCount">👥 —</span>
+  </button>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebarHeader">
+    <div class="sidebarTitle">Salas</div>
+    <button id="newRoomBtn" class="smallBtn" type="button">+ Nova</button>
+  </div>
+
+  <div class="rooms" id="rooms"></div>
+
+  <div class="sidebarFooter">
+    <div class="meBox">
+      <div class="meAvatar" id="meAvatar">A</div>
+      <div class="meInfo">
+        <div class="meName" id="meName">—</div>
+        <div class="meHint">/room nome • /admin TOKEN • /antispam on/off/lockdown</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<main class="chat" id="chat"></main>
+
+<div class="newBelow" id="newBelow" hidden>
+  <button id="jumpBtn" class="jumpBtn">⬇ novas mensagens</button>
+</div>
+
+<form class="composer" id="form">
+  <textarea id="input" class="input" rows="1" placeholder="Digite... (Enter quebra linha no celular; botão envia)"></textarea>
+  <button type="submit" class="sendBtn">Enviar</button>
+</form>
+
+<!-- Painel online (abre ao clicar no 👥) -->
+<div class="overlay" id="overlay" hidden></div>
+<section class="panel" id="onlinePanel" aria-label="Usuários online" hidden>
+  <div class="panelHeader">
+    <div class="panelTitle">Online</div>
+    <button id="closePanel" class="iconBtn" aria-label="Fechar">✕</button>
+  </div>
+  <div class="panelBody" id="onlineList"></div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
